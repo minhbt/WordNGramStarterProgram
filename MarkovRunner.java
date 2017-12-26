@@ -25,7 +25,8 @@ public class MarkovRunner {
         for(int k=0; k < 3; k++){ 
             String st = markov.getRandomText(size); 
             printOut(st); 
-        } 
+        }  
+        
     } 
 
     public void runMarkov() { 
@@ -33,9 +34,16 @@ public class MarkovRunner {
         String st = fr.asString(); 
         st = st.replace('\n', ' '); 
         MarkovWordOne markovWord = new MarkovWordOne(); 
-        runModel(markovWord, st, 200); 
+        runModel(markovWord, st, 200, 832); 
     } 
 
+    public void runMarkov2() { 
+        FileResource fr = new FileResource(); 
+        String st = fr.asString(); 
+        st = st.replace('\n', ' '); 
+        MarkovWordTwo markovWord = new MarkovWordTwo(); 
+        runModel(markovWord, st, 200, 832); 
+    } 
     private void printOut(String s){
         String[] words = s.split("\\s+");
         int psize = 0;
